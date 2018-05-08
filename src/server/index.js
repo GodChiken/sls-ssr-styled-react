@@ -14,10 +14,10 @@ fs.readdir(testFolder, (err, files) => {
 
 const app = express()
   .use(helmet())
-  .use(logger("tiny"))
+  .use(logger("dev"))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .use("/static", express.static("./dist/public"))
+  .use("/static", express.static(__dirname + "/dist/public"))
   .get("*", renderPage);
 
 const PORT = process.env.PORT || 1234;
