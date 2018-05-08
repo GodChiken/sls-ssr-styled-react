@@ -1,90 +1,58 @@
-const webpack = require("webpack");
 const path = require("path");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 
-const isProduction = process.env.NODE_ENV === "production";
-const productionPluginDefine = isProduction
-  ? [new webpack.DefinePlugin({ "process.env": { NODE_ENV: JSON.stringify("production") } })]
-  : [];
-const clientLoaders = isProduction
-  ? productionPluginDefine.concat([
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }, sourceMap: false })
-    ])
-  : [];
-
-module.exports = [
-  {
-    entry: "./src/lambda.js",
-    output: {
-      path: path.join(__dirname, "dist"),
-      filename: "lambda.js",
-      libraryTarget: "commonjs2",
-      publicPath: "/"
-    },
-    target: "node",
-    node: {
-      console: false,
-      global: false,
-      process: false,
-      Buffer: false,
-      __filename: false,
-      __dirname: false
-    },
-    externals: nodeExternals(),
-    plugins: productionPluginDefine,
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          loader: "babel-loader"
-        },
-        {
-          test: /\.json$/,
-          loader: "json-loader"
-        }
-      ]
-    }
+const clientConfig = {
+  name: "client",
+  target: "web",
+  entry: "./src/browser.jsx",
+  output: {
+    path: path.join(__dirname, "dist/public"),
+    publicPath: "/static/",
+    filename: "bundle.[hash:6].js"
   },
-  {
-    entry: "./src/app/browser.js",
-    output: {
-      path: path.join(__dirname, "dist", "assets"),
-      publicPath: "/",
-      filename: "bundle.js"
-    },
-    plugins: clientLoaders.concat([
-      new ExtractTextPlugin("index.css", {
-        allChunks: true
-      })
-    ]),
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: {
           loader: "babel-loader"
         },
-        {
-          test: /\.scss$/,
-          loader: ExtractTextPlugin.extract([
-            {
-              loader: "css-loader",
-              options: {
-                importLoaders: 1
-              }
-            },
-            {
-              loader: "sass-loader"
-            }
-          ])
-        }
-      ]
-    },
-    resolve: {
-      extensions: ["", ".js", ".jsx"]
-    }
+        exclude: /node_modules/
+      }
+    ]
+  },
+  plugins: [new CleanWebpackPlugin(["dist"]), new ManifestPlugin()],
+  resolve: {
+    extensions: [".js", ".jsx"]
   }
-];
+};
+
+const serverConfig = {
+  name: "server",
+  target: "node",
+  externals: nodeExternals(),
+  entry: "./src/lambda.js",
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "lambda.js",
+    libraryTarget: "commonjs2"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: {
+          loader: "babel-loader"
+        },
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
+  }
+};
+
+module.exports = [clientConfig, serverConfig];
