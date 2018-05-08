@@ -9,13 +9,7 @@ import App from "../app/components/App";
 import { ServerStyleSheet } from "styled-components";
 import rootReducer from "../app/reducers";
 
-const env = process.env.NODE_ENV;
-
 const manifest = JSON.parse(readFileSync(`./dist/public/manifest.json`, "utf8"));
-
-const bundleUrlPrefix = env !== "development" ? "https://s3.ap-northeast-2.amazonaws.com/small-wins-static" : "";
-
-const bundleUrl = bundleUrlPrefix + manifest["main.js"];
 
 const renderPage = (req, res) => {
   const store = createStore(rootReducer);
@@ -55,7 +49,7 @@ const renderPage = (req, res) => {
       <script>
         window.PRELOADED_STATE = ${JSON.stringify(preloadedState)}
       </script>
-      <script src=${bundleUrl}></script>
+      <script src=${manifest["main.js"]}></script>
     </html>
   `;
 
