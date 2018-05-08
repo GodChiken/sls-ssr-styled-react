@@ -17,7 +17,7 @@ const app = express()
   .use(logger("dev"))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .use("/static", express.static(__dirname + "/dist/public"))
+  .use(express.static(__dirname + "/dist/public"))
   .get("*", renderPage);
 
 const PORT = process.env.PORT || 1234;
