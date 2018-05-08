@@ -1,4 +1,4 @@
-service: serverless-server-side-rendering-width-react-and-styled-components
+service: serverless-ssr-react-sc
 
 provider:
   name: aws
