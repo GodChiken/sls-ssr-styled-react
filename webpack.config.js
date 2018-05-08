@@ -15,13 +15,6 @@ const clientLoaders = isProduction
     ])
   : [];
 
-const commonLoaders = [
-  {
-    test: /\.json$/,
-    loader: "json-loader"
-  }
-];
-
 module.exports = [
   {
     entry: "./src/lambda.js",
@@ -46,9 +39,13 @@ module.exports = [
       loaders: [
         {
           test: /\.js$/,
-          loader: "babel"
+          loader: "babel-loader"
+        },
+        {
+          test: /\.json$/,
+          loader: "json-loader"
         }
-      ].concat(commonLoaders)
+      ]
     }
   },
   {
@@ -68,7 +65,7 @@ module.exports = [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: "babel"
+          loader: "babel-loader"
         },
         {
           test: /\.scss$/,
