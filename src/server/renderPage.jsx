@@ -9,6 +9,10 @@ import App from "../app/components/App";
 import { ServerStyleSheet } from "styled-components";
 import rootReducer from "../app/reducers";
 
+const env = process.env.NODE_ENV;
+
+console.log(env);
+
 const manifest = JSON.parse(readFileSync(`./dist/public/manifest.json`, "utf8"));
 
 const renderPage = (req, res) => {
