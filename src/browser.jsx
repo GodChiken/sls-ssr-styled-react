@@ -19,8 +19,6 @@ if (env === "development") {
 const preloadedState = window.PRELOADED_STATE;
 delete window.PRELOADED_STATE;
 
-console.log(env);
-
 const store =
   env === "development"
     ? createStore(rootReducer, preloadedState, composeWithDevTools(applyMiddleware(...middlewares)))
