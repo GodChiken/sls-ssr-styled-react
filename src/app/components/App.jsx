@@ -9,16 +9,16 @@ const App = ({ isLoggedIn }) => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Redirect to="/" />
+        <Route exact path="/latest" component={Home} />
+        <Redirect to="/latest" />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <Redirect to="/" />
+      <Route exact path="/latest" component={LandingPage} />
+      <Redirect to="/latest" />
     </Switch>
   );
 };
