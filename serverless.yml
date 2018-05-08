@@ -1,4 +1,4 @@
-service: serverless-react-boilerplate
+service: serverless-server-side-rendering-width-react-and-styled-components
 
 provider:
   name: aws
