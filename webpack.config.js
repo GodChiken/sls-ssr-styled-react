@@ -19,7 +19,7 @@ module.exports = [
   {
     entry: "./src/lambda.js",
     output: {
-      path: path.join(__dirname, "./dist"),
+      path: path.join(__dirname, "dist"),
       filename: "lambda.js",
       libraryTarget: "commonjs2",
       publicPath: "/"
@@ -51,7 +51,7 @@ module.exports = [
   {
     entry: "./src/app/browser.js",
     output: {
-      path: path.join(__dirname, "./dist/assets"),
+      path: path.join(__dirname, "dist", "assets"),
       publicPath: "/",
       filename: "bundle.js"
     },
@@ -69,7 +69,17 @@ module.exports = [
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract("css!sass")
+          loader: ExtractTextPlugin.extract([
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: "sass-loader"
+            }
+          ])
         }
       ]
     },
