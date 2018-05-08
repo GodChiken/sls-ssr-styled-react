@@ -4,11 +4,12 @@
   "description": "A Demo of Serverless Framework with React Server Side Render",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --watch --mode development",
+    "build": "webpack --watch --mode development --config webpack.config.dev.js",
     "serve": "nodemon dist/lambda.js",
     "start": "concurrently \"yarn serve\" \"yarn build\"",
     "s3-sync": "aws s3 sync ./dist/public/ s3://small-wins-static --delete",
-    "deploy": "webpack --mode production && git add . && git commit -m \"for deploy\" && yarn s3-sync && sls deploy",
+    "deploy":
+      "webpack --mode production --config webpack.config.prod.js && git add . && git commit -m \"for deploy\" && yarn s3-sync && sls deploy",
     "logs": "sls logs -f lambda"
   },
   "repository": {
@@ -43,7 +44,6 @@
     "babel-core": "^6.10.4",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
     "clean-webpack-plugin": "^0.1.19",
