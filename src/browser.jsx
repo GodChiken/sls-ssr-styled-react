@@ -4,12 +4,13 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 import rootReducer from "./app/reducers";
 import App from "./app/components/App";
 
 const env = process.env.NODE_ENV;
 
-const middlewares = [];
+const middlewares = [thunk];
 
 if (env === "development") {
   const { logger } = require("redux-logger");

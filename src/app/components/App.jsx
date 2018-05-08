@@ -5,20 +5,22 @@ import Home from "./Home";
 import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
+console.log(__dirname);
+
 const App = ({ isLoggedIn }) => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path="/dev" component={Home} />
-        <Redirect to="/dev" />
+        <Route exact path={__dirname} component={Home} />
+        <Redirect to={__dirname} />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path="/dev" component={LandingPage} />
-      <Redirect to="/dev" />
+      <Route exact path={__dirname} component={LandingPage} />
+      <Redirect to={__dirname} />
     </Switch>
   );
 };
