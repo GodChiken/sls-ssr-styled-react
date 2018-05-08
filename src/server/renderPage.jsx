@@ -11,9 +11,10 @@ import rootReducer from "../app/reducers";
 
 const env = process.env.NODE_ENV;
 
-console.log(env);
-
 const manifest = JSON.parse(readFileSync(`./dist/public/manifest.json`, "utf8"));
+
+const bundleUrl =
+  env !== "development" ? "https://s3.ap-northeast-2.amazonaws.com/small-wins-static" : "" + manifest["main.js"];
 
 const renderPage = (req, res) => {
   const store = createStore(rootReducer);
@@ -53,9 +54,7 @@ const renderPage = (req, res) => {
       <script>
         window.PRELOADED_STATE = ${JSON.stringify(preloadedState)}
       </script>
-      <script src=${
-        env !== "development" ? "https://s3.ap-northeast-2.amazonaws.com/small-wins-static" : "" + manifest["main.js"]
-      }></script>
+      <script src=${bundleUrl}></script>
     </html>
   `;
 
