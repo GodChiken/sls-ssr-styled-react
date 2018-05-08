@@ -7,7 +7,7 @@
     "build": "webpack --watch --mode development",
     "serve": "nodemon dist/lambda.js",
     "start": "concurrently \"yarn serve\" \"yarn build\"",
-    "deploy": "webpack --mode production && sls deploy",
+    "deploy": "webpack --mode production && git add . && git commit -m \"for deploy\" && sls deploy",
     "logs": "sls logs -f lambda"
   },
   "repository": {
