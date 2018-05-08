@@ -9,7 +9,7 @@
     "start": "concurrently \"yarn serve\" \"yarn build\"",
     "s3-sync": "aws s3 sync ./dist/public/ s3://small-wins-static --delete",
     "deploy":
-      "NODE_ENV=production webpack --mode production --config webpack.config.dev.js && git add . && git commit -m \"for deploy\" && yarn s3-sync && sls deploy",
+      "NODE_ENV=production webpack --mode production --config webpack.config.prod.js && git add . && git commit -m \"for deploy\" && yarn s3-sync && sls deploy",
     "logs": "sls logs -f lambda"
   },
   "repository": {
