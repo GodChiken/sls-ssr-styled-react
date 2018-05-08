@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
 
@@ -25,7 +26,7 @@ module.exports = [
   {
     entry: "./src/lambda.js",
     output: {
-      path: "./dist",
+      path: path.join(__dirname, "./dist"),
       filename: "lambda.js",
       libraryTarget: "commonjs2",
       publicPath: "/"
@@ -53,7 +54,7 @@ module.exports = [
   {
     entry: "./src/app/browser.js",
     output: {
-      path: "./dist/assets",
+      path: path.join(__dirname, "./dist/assets"),
       publicPath: "/",
       filename: "bundle.js"
     },
