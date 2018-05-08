@@ -53,7 +53,9 @@ const renderPage = (req, res) => {
       <script>
         window.PRELOADED_STATE = ${JSON.stringify(preloadedState)}
       </script>
-      <script src=${manifest["main.js"]}></script>
+      <script src=${
+        env !== "development" ? "https://s3.ap-northeast-2.amazonaws.com/small-wins-static" : "" + manifest["main.js"]
+      }></script>
     </html>
   `;
 
