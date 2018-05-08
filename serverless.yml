@@ -3,7 +3,7 @@ service: serverless-ssr-react-sc
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: latest
+  stage: /
   region: ap-northeast-2
 
 functions:
