@@ -13,8 +13,9 @@ const env = process.env.NODE_ENV;
 
 const manifest = JSON.parse(readFileSync(`./dist/public/manifest.json`, "utf8"));
 
-const bundleUrl =
-  env !== "development" ? "https://s3.ap-northeast-2.amazonaws.com/small-wins-static" : "" + manifest["main.js"];
+const bundleUrlPrefix = env !== "development" ? "https://s3.ap-northeast-2.amazonaws.com/small-wins-static" : "";
+
+const bundleUrl = bundleUrlPrefix + manifest["main.js"];
 
 const renderPage = (req, res) => {
   const store = createStore(rootReducer);
