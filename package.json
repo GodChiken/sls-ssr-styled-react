@@ -8,7 +8,8 @@
     "serve": "nodemon dist/lambda.js",
     "start": "concurrently \"yarn serve\" \"yarn build\"",
     "s3-sync": "aws s3 sync ./dist/public/ s3://small-wins-static --delete",
-    "deploy": "NODE_ENV=production webpack --mode production && git add . && git commit -m \"for deploy\" && yarn s3-sync && sls deploy",
+    "deploy":
+      "NODE_ENV=production webpack --mode production && git add . && git commit -m \"for deploy\" && yarn s3-sync && sls deploy",
     "logs": "sls logs -f lambda"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "aws-serverless-express": "^3.0.2",
     "express": "^4.16.2",
     "helmet": "^3.12.0",
+    "image-webpack-loader": "^4.2.0",
     "morgan": "^1.9.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
@@ -48,6 +50,8 @@
     "babel-preset-react": "^6.11.1",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.5.1",
+    "file-loader": "^1.1.11",
+    "url-loader": "^1.0.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-manifest-plugin": "^2.0.2",

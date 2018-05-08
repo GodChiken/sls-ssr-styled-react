@@ -23,6 +23,27 @@ const clientConfig = {
           loader: "babel-loader"
         },
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 4096,
+              name: "[name].[hash:6].[ext]",
+              outputPath: "images/"
+            }
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                enabled: false
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -50,6 +71,28 @@ const serverConfig = {
           loader: "babel-loader"
         },
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              emitFile: false,
+              limit: 4096,
+              name: "[name].[hash:6].[ext]",
+              publicPath: "/static/images/"
+            }
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                enabled: false
+              }
+            }
+          }
+        ]
       }
     ]
   },

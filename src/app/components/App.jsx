@@ -5,8 +5,6 @@ import Home from "./Home";
 import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
-console.log(process.env.NODE_ENV);
-
 const App = ({ isLoggedIn }) => {
   if (isLoggedIn) {
     return (
