@@ -9,7 +9,7 @@ const clientConfig = {
   entry: "./src/browser.jsx",
   output: {
     path: path.join(__dirname, "dist/public"),
-    publicPath: "/dist/public/",
+    publicPath: "/static/",
     filename: "bundle.[hash:6].js"
   },
   module: {
