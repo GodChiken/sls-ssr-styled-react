@@ -3,7 +3,7 @@ import helmet from "helmet";
 import logger from "morgan";
 import renderPage from "./renderPage";
 
-const testFolder = "./dist/";
+const testFolder = "./dist/public";
 const fs = require("fs");
 
 fs.readdir(testFolder, (err, files) => {
