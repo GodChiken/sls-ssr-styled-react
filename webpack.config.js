@@ -1,34 +1,36 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var nodeExternals = require('webpack-node-externals');
+const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
 
-var isProduction = process.env.NODE_ENV === 'production';
-var productionPluginDefine = isProduction ? [
-  new webpack.DefinePlugin({'process.env': {'NODE_ENV': JSON.stringify('production')}})
-] : [];
-var clientLoaders = isProduction ? productionPluginDefine.concat([
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }, sourceMap: false })
-]) : [];
+const isProduction = process.env.NODE_ENV === "production";
+const productionPluginDefine = isProduction
+  ? [new webpack.DefinePlugin({ "process.env": { NODE_ENV: JSON.stringify("production") } })]
+  : [];
+const clientLoaders = isProduction
+  ? productionPluginDefine.concat([
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }, sourceMap: false })
+    ])
+  : [];
 
-var commonLoaders = [
+const commonLoaders = [
   {
     test: /\.json$/,
-    loader: 'json-loader'
+    loader: "json-loader"
   }
 ];
 
 module.exports = [
   {
-    entry: './src/lambda.js',
+    entry: "./src/lambda.js",
     output: {
-      path: './dist',
-      filename: 'lambda.js',
-      libraryTarget: 'commonjs2',
-      publicPath: '/'
+      path: "./dist",
+      filename: "lambda.js",
+      libraryTarget: "commonjs2",
+      publicPath: "/"
     },
-    target: 'node',
+    target: "node",
     node: {
       console: false,
       global: false,
@@ -43,20 +45,20 @@ module.exports = [
       loaders: [
         {
           test: /\.js$/,
-          loader: 'babel'
+          loader: "babel"
         }
       ].concat(commonLoaders)
     }
   },
   {
-    entry: './src/app/browser.js',
+    entry: "./src/app/browser.js",
     output: {
-      path: './dist/assets',
-      publicPath: '/',
-      filename: 'bundle.js'
+      path: "./dist/assets",
+      publicPath: "/",
+      filename: "bundle.js"
     },
     plugins: clientLoaders.concat([
-      new ExtractTextPlugin('index.css', {
+      new ExtractTextPlugin("index.css", {
         allChunks: true
       })
     ]),
@@ -65,16 +67,16 @@ module.exports = [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel'
+          loader: "babel"
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract('css!sass')
+          loader: ExtractTextPlugin.extract("css!sass")
         }
       ]
     },
     resolve: {
-      extensions: ['', '.js', '.jsx']
+      extensions: ["", ".js", ".jsx"]
     }
   }
 ];
