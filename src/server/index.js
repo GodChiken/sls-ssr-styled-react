@@ -3,12 +3,21 @@ import helmet from "helmet";
 import logger from "morgan";
 import renderPage from "./renderPage";
 
+const testFolder = "./dist/";
+const fs = require("fs");
+
+fs.readdir(testFolder, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+});
+
 const app = express()
   .use(helmet())
   .use(logger("tiny"))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .use("/static", express.static("dist/public"))
+  .use("/static", express.static("./dist/public"))
   .get("*", renderPage);
 
 const PORT = process.env.PORT || 1234;

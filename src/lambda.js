@@ -3,6 +3,6 @@ const app = require("./server");
 const server = awsServerlessExpress.createServer(app);
 
 exports.handler = (event, context) => {
-  console.log("EVENT: " + JSON.stringify(event));
+  console.log(event);
   awsServerlessExpress.proxy(server, event, context);
 };
