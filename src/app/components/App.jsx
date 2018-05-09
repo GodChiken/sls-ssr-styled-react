@@ -6,7 +6,7 @@ import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
 const App = ({ isLoggedIn, match }) => {
-  console.log(match);
+  console.log(match, __dirname);
   if (isLoggedIn) {
     return (
       <Switch>
