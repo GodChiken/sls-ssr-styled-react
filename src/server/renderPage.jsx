@@ -18,9 +18,8 @@ const renderPage = (req, res) => {
   const store = createStore(rootReducer);
   const preloadedState = store.getState();
 
-  // Server-side-rendering for styled-components
+  // Server-side-rendering for styled-components - 1
   const sheet = new ServerStyleSheet();
-  const styles = sheet.getStyleTags();
 
   // Server-side-rendering for App component
   const staticContext = {};
@@ -34,11 +33,14 @@ const renderPage = (req, res) => {
     )
   );
 
+  // Server-side-rendering for styled-components - 2
+  const styles = sheet.getStyleTags();
+
   // Server-side-rendering for <head> values
   const helmet = Helmet.renderStatic();
 
   // Server-side-rendered index.html
-  // We can save store data to window object and use it as a initialState in redux. (browser.jsx)
+  // We can save preloadedState to window object and use it as an initialState of redux store. (browser.jsx)
   const html = `
     <!DOCTYPE html>
     <html>

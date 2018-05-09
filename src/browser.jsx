@@ -18,6 +18,7 @@ if (env === "development") {
 }
 
 // We can use preloadedState which was saved in server-side-rendering. (renderPage.jsx)
+// We can use it as an initialState of redux store.
 const preloadedState = window.PRELOADED_STATE;
 delete window.PRELOADED_STATE;
 
