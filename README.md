@@ -27,13 +27,19 @@ cd sls-ssr-styled-react
 ```
 
 
-## 4. Install
+## 4. Git Init
+```
+git init
+```
+
+
+## 5. Install
 ```
 yarn
 ```
 
 
-## 5. Explore
+## 6. Explore
 in local development
 ```
 yarn start
@@ -41,7 +47,7 @@ yarn start
 visit `localhost:1234`
 
 
-## 6. Deploy
+## 7. Deploy
 in production
 * You need S3 bucket name & bucket URL
 * Insert `[YOUR_S3_BUCEKT_NAME]` => `package.json:10`
