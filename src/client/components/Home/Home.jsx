@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+// styled-components
 const Title = styled.h1`
   font-size: 2rem;
   color: darkblue;
@@ -23,6 +24,7 @@ const Container = styled.div`
 `;
 
 const Home = props => {
+  // we can use `dispatch` function because Home component was connected in index.jsx.
   const { dispatch } = props;
 
   return (

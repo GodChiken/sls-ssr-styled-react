@@ -9,6 +9,7 @@ const clientConfig = {
   entry: "./src/browser.jsx",
   output: {
     path: path.join(__dirname, "dist/public"),
+    // publicPath will be changed according to NODE_ENV.
     publicPath: process.env.NODE_ENV === "development" ? "/static/" : "[YOUR_S3_BUCKET_URL]",
     filename: "bundle.[hash:6].js"
   },

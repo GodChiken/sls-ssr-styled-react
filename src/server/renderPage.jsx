@@ -9,12 +9,20 @@ import { ServerStyleSheet } from "styled-components";
 import App from "../client/components/App";
 import rootReducer from "../client/reducers";
 
+// Through webpack, all bundled files' names are hashed and all names are saved in ./dist/public/manifest.json
+// We read manifest file to know hashed file names.
 const manifest = JSON.parse(readFileSync(`./dist/public/manifest.json`, "utf8"));
 
 const renderPage = (req, res) => {
+  // Server-side-rendering for redux store
   const store = createStore(rootReducer);
-  const sheet = new ServerStyleSheet();
+  const preloadedState = store.getState();
 
+  // Server-side-rendering for styled-components
+  const sheet = new ServerStyleSheet();
+  const styles = sheet.getStyleTags();
+
+  // Server-side-rendering for App component
   const staticContext = {};
   const appString = renderToString(
     sheet.collectStyles(
@@ -26,10 +34,11 @@ const renderPage = (req, res) => {
     )
   );
 
-  const styles = sheet.getStyleTags();
-  const preloadedState = store.getState();
+  // Server-side-rendering for <head> values
   const helmet = Helmet.renderStatic();
 
+  // Server-side-rendered index.html
+  // We can save store data to window object and use it as a initialState in redux. (browser.jsx)
   const html = `
     <!DOCTYPE html>
     <html>
@@ -44,7 +53,7 @@ const renderPage = (req, res) => {
         <div id="root">${appString}</div>
       </body>
       <script>
-        window.PRELOADED_STATE = ${JSON.stringify(preloadedState)}
+        window.PRELOADED_STATE = ${JSON.stringify(preloadedState)} 
       </script>
       <script src=${manifest["main.js"]}></script>
     </html>

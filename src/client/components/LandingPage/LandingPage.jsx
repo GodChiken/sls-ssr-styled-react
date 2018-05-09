@@ -31,6 +31,7 @@ const Image = styled.img.attrs({
 `;
 
 const LandingPage = props => {
+  // we can use dispatch because LandingPage component was `connected` in index.js.
   const { dispatch } = props;
 
   return (

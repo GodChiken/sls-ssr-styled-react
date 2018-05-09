@@ -17,6 +17,7 @@ if (env === "development") {
   middlewares.push(logger);
 }
 
+// We can use preloadedState which was saved in server-side-rendering. (renderPage.jsx)
 const preloadedState = window.PRELOADED_STATE;
 delete window.PRELOADED_STATE;
 
@@ -25,6 +26,7 @@ const store =
     ? createStore(rootReducer, preloadedState, composeWithDevTools(applyMiddleware(...middlewares)))
     : createStore(rootReducer, preloadedState, applyMiddleware(...middlewares));
 
+// We use ReactDOM.hydrate() for server-side-rendering instead of ReactDOM.render().
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
