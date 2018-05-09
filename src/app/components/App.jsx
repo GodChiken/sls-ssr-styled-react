@@ -9,7 +9,7 @@ const App = ({ isLoggedIn }) => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact url="/dev" component={Home} />
+        <Route exact path="/dev" component={Home} />
         <Redirect to="/dev" />
       </Switch>
     );
@@ -17,7 +17,7 @@ const App = ({ isLoggedIn }) => {
 
   return (
     <Switch>
-      <Route exact url="/dev" component={LandingPage} />
+      <Route exact path="/dev" component={LandingPage} />
       <Redirect to="/dev" />
     </Switch>
   );
