@@ -5,7 +5,7 @@
 npm install -g serverless aws
 ```
 
-0-1. AWS Configuration
+## 1. AWS Configuration
 You should had IAM Role in AWS. (AdministratorAccess Permission)
 Then You get `AWS Access Key ID` and `AWS Secret Access Key`.
 In the terminal,
@@ -14,28 +14,28 @@ aws configure
 ```
 Type `AWS Access Key ID`, `AWS Secret Access Key`, etc..
 
-1. Install app
+## 2. Install app
 ```
 serverless install --url https://github.com/twiw49/sls-ssr-styled-react
 ```
 
-2. Go to directory
+## 3. Go to directory
 ```
 cd sls-ssr-styled-react
 ```
 
-3. Install
+## 4. Install
 ```
 yarn install
 ```
 
-4. Explore
+## 5. Explore
 in local development
 ```
 yarn start
 ```
 
-5. Deploy
+## 6. Deploy
 in production
 * You need S3 bucket name & bucket URL
 * S3 bucket name => `package.json:10`
