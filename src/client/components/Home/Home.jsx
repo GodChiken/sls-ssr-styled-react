@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -30,6 +31,10 @@ const Home = props => {
       <Button onClick={() => dispatch({ type: "LOGOUT" })}>LOGOUT</Button>
     </Container>
   );
+};
+
+Home.propTypes = {
+  dispatch: PropTypes.func.isRequired
 };
 
 export default Home;

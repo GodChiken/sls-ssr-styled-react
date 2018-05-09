@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import where from "../../../assets/images/where.jpg";
 
@@ -39,6 +40,10 @@ const LandingPage = props => {
       <Button onClick={() => dispatch({ type: "LOGIN" })}>LOGIN</Button>
     </Container>
   );
+};
+
+LandingPage.propTypes = {
+  dispatch: PropTypes.func.isRequired
 };
 
 export default LandingPage;
