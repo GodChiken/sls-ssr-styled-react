@@ -1,5 +1,5 @@
 {
-  "name": "serverless-react-server-side-render",
+  "name": "sls-ssr-styled-react",
   "version": "1.0.0",
   "description": "A Demo of Serverless Framework with React Server Side Render",
   "main": "index.js",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phodal/serverless-react-server-side-render.git"
+    "url": "git+https://github.com/twiw49/sls-ssr-styled-react.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Choi <twiw49@gmail.com>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/phodal/serverless-react-server-side-render/issues"
+    "url": "https://github.com/twiw49/sls-ssr-styled-react/issues"
   },
-  "homepage": "https://github.com/phodal/serverless-react-server-side-render#readme",
+  "homepage": "https://github.com/twiw49/sls-ssr-styled-react#readme",
   "dependencies": {
     "aws-serverless-express": "^3.0.2",
     "express": "^4.16.2",
