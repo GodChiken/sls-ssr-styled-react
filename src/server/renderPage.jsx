@@ -4,6 +4,7 @@ import { renderToString } from "react-dom/server";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router";
+import { Helmet } from "react-helmet";
 import App from "../app/components/App";
 import { ServerStyleSheet } from "styled-components";
 import rootReducer from "../app/reducers";
@@ -30,6 +31,8 @@ const renderPage = (req, res) => {
 
   const preloadedState = store.getState();
 
+  const helmet = Helmet.renderStatic();
+
   const html = `
     <!DOCTYPE html>
     <html>
@@ -38,6 +41,7 @@ const renderPage = (req, res) => {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         ${styles}
+        ${helmet.title.toString()}
       </head>
       <body>
         <div id="root">${appString}</div>

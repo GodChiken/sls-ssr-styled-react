@@ -1,4 +1,4 @@
 {
-  "main.js": "https://s3.ap-northeast-2.amazonaws.com/small-wins-static/bundle.999742.js",
-  "images/where.jpg": "https://s3.ap-northeast-2.amazonaws.com/small-wins-static/images/where.b8cf4a.jpg"
+  "main.js": "/static/bundle.b42354.js",
+  "images/where.jpg": "/static/images/where.b8cf4a.jpg"
 }

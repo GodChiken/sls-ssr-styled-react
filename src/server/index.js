@@ -1,9 +1,11 @@
 import express from "express";
-import logger from "morgan";
+import helmet from "helmet";
+import morgan from "morgan";
 import renderPage from "./renderPage";
 
 const app = express()
-  .use(logger("dev"))
+  .use(helmet())
+  .use(morgan("dev"))
   .use(express.json())
   .use(express.urlencoded({ extended: true }));
 
