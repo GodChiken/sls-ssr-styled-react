@@ -44,8 +44,8 @@ visit `localhost:1234`
 ## 6. Deploy
 in production
 * You need S3 bucket name & bucket URL
-* S3 bucket name => `package.json:10`
-* S3 bucket URL => `webpack.config.js:12`
+* Insert `[YOUR_S3_BUCEKT_NAME]` => `package.json:10`
+* Insert `[YOUR_BUCKET_URL]` => `webpack.config.js:12`
 * When you deploy to lambda, it gives you endpoint URL. But It has sub path (/[stage_name]) not root path(/). Therefore you have to change paths in React-Router-DOM.
 ```
 yarn deploy
