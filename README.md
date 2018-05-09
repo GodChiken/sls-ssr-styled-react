@@ -1,17 +1,15 @@
-# serverless-react-server-side-render
-
-Demo of Serverless Framework with React Server Side Render
+# Serverless Server-Side-Rendering with React and Styled-Components (feat. Webpack and Redux)
 
 1.install services
 
 ```
-serverless install --url https://github.com/phodal/serverless-react-server-side-render
+serverless install --url https://github.com/twiw49/sls-ssr-styled-react
 ```
 
 2.goto directory
 
 ```
-cd serverless-react-server-side-render
+cd sls-ssr-styled-react
 ```
 
 3.install
@@ -22,14 +20,19 @@ yarn install
 
 4.explore
 
-5.deploy
+* in local development
 
 ```
-webpack
-serverless deploy
+yarn start
 ```
 
-LICENSE
----
+5.  deploy
 
-MIT
+* in production
+  You need S3 bucket name & bucket URL
+  S3 bucket name => `package.json:10`
+  S3 bucket URL => `webpack.config.js:12`
+
+```
+yarn deploy
+```
