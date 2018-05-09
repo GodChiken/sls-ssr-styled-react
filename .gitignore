@@ -1,4 +1,4 @@
-node_modules
-.serverless
-dist
+/node_modules
+/dist
+/.serverless
 yarn.lock
