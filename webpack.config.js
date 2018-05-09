@@ -9,7 +9,10 @@ const clientConfig = {
   entry: "./src/browser.jsx",
   output: {
     path: path.join(__dirname, "dist/public"),
-    publicPath: process.env.NODE_ENV === "development" ? "/static/" : "[YOUR_S3_BUCKET_URL]",
+    publicPath:
+      process.env.NODE_ENV === "development"
+        ? "/static/"
+        : "https://s3.ap-northeast-2.amazonaws.com/small-wins-static/",
     filename: "bundle.[hash:6].js"
   },
   module: {

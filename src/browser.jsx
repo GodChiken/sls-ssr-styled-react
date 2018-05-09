@@ -5,8 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import rootReducer from "./app/reducers";
-import App from "./app/components/App";
+import rootReducer from "./client/reducers";
+import App from "./client/components/App";
 
 const env = process.env.NODE_ENV;
 

@@ -1,4 +1,4 @@
 {
-  "main.js": "[YOUR_S3_BUCKET_URL]bundle.483a28.js",
-  "images/where.jpg": "[YOUR_S3_BUCKET_URL]images/where.b8cf4a.jpg"
+  "main.js": "https://s3.ap-northeast-2.amazonaws.com/small-wins-static/bundle.8b716b.js",
+  "images/where.jpg": "https://s3.ap-northeast-2.amazonaws.com/small-wins-static/images/where.b8cf4a.jpg"
 }

@@ -5,9 +5,9 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router";
 import { Helmet } from "react-helmet";
-import App from "../app/components/App";
 import { ServerStyleSheet } from "styled-components";
-import rootReducer from "../app/reducers";
+import App from "../client/components/App";
+import rootReducer from "../client/reducers";
 
 const manifest = JSON.parse(readFileSync(`./dist/public/manifest.json`, "utf8"));
 
@@ -16,7 +16,6 @@ const renderPage = (req, res) => {
   const sheet = new ServerStyleSheet();
 
   const staticContext = {};
-
   const appString = renderToString(
     sheet.collectStyles(
       <Provider store={store}>
@@ -28,9 +27,7 @@ const renderPage = (req, res) => {
   );
 
   const styles = sheet.getStyleTags();
-
   const preloadedState = store.getState();
-
   const helmet = Helmet.renderStatic();
 
   const html = `

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import Home from "./Home";
 import LandingPage from "./LandingPage";
-import { connect } from "react-redux";
 
 // When you deploy to lambda, it gives you endpoint URL.
 // But It has sub-path (/dev) instead of root path(/).
