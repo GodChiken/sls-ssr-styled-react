@@ -2,7 +2,7 @@
 
 ## 0. You need to install serverless and aws
 ```
-npm install -g serverless aws
+yarn add -g serverless aws
 ```
 
 ## 1. AWS Configuration
@@ -29,7 +29,7 @@ cd sls-ssr-styled-react
 
 ## 4. Install
 ```
-yarn install
+yarn
 ```
 
 
