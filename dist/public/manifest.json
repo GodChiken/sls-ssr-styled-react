@@ -1,4 +1,4 @@
 {
-  "main.js": "/static/bundle.e7b55e.js",
-  "images/where.jpg": "/static/images/where.b8cf4a.jpg"
+  "main.js": "[YOUR_S3_BUCKET_URL]bundle.483a28.js",
+  "images/where.jpg": "[YOUR_S3_BUCKET_URL]images/where.b8cf4a.jpg"
 }
