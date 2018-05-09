@@ -5,7 +5,10 @@ import Home from "./Home";
 import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
-const SUB_ROOT = process.env.NODE_ENV === "development" ? "" : "/dev";
+// When you deploy to lambda, it gives you endpoint URL.
+// But It has sub-path (/dev) instead of root path(/).
+// Therefore you have to insert sub-path in front of all paths in React-Router-DOM.
+const SUB_PATH = process.env.NODE_ENV === "development" ? "" : "/dev";
 
 const App = props => {
   const {
@@ -15,16 +18,16 @@ const App = props => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path={`${SUB_ROOT}/`} component={Home} />
-        <Redirect to={`${SUB_ROOT}/`} />
+        <Route exact path={`${SUB_PATH}/`} component={Home} />
+        <Redirect to={`${SUB_PATH}/`} />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path={`${SUB_ROOT}/`} component={LandingPage} />
-      <Redirect to={`${SUB_ROOT}/`} />
+      <Route exact path={`${SUB_PATH}/`} component={LandingPage} />
+      <Redirect to={`${SUB_PATH}/`} />
     </Switch>
   );
 };
