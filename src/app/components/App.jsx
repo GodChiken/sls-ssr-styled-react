@@ -13,16 +13,16 @@ const App = props => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path={`${pathname}/`} component={Home} />
-        <Redirect to={`${pathname}/`} />
+        <Route exact path={`/dev`} component={Home} />
+        <Redirect to={`/dev`} />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path={`${pathname}/`} component={LandingPage} />
-      <Redirect to={`${pathname}/`} />
+      <Route exact path={`/dev`} component={LandingPage} />
+      <Redirect to={`/dev`} />
     </Switch>
   );
 };
