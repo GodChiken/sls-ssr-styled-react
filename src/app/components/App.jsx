@@ -5,21 +5,21 @@ import Home from "./Home";
 import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
-const App = ({ isLoggedIn, match }) => {
-  console.log(match, __dirname);
+const App = ({ isLoggedIn }) => {
+  console.log(process.env.NODE_ENV);
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path={`${__dirname}/`} component={Home} />
-        <Redirect to={`${__dirname}/`} />
+        <Route exact path="/" component={Home} />
+        <Redirect to="/" />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path={`${__dirname}/`} component={LandingPage} />
-      <Redirect to={`${__dirname}/`} />
+      <Route exact path="/" component={LandingPage} />
+      <Redirect to="/" />
     </Switch>
   );
 };
