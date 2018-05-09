@@ -5,8 +5,9 @@ import Home from "./Home";
 import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
-const App = ({ isLoggedIn }) => {
-  console.log(process.env.NODE_ENV);
+const App = props => {
+  const { isLoggedIn } = props;
+  console.log(props);
   if (isLoggedIn) {
     return (
       <Switch>
