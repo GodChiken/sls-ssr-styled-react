@@ -6,7 +6,7 @@ npm install -g serverless aws
 ```
 
 ## 1. AWS Configuration
-* You should have IAM Role in AWS. (AdministratorAccess Permission will be enough.)
+* You should have IAM Role in AWS. (`AdministratorAccess` Permission will be enough.)
 * Then You get `AWS Access Key ID` and `AWS Secret Access Key`.
 * In the terminal,
 ```
