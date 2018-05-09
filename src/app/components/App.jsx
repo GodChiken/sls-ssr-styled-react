@@ -6,21 +6,23 @@ import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
 const App = props => {
-  const { isLoggedIn } = props;
-  console.log(props);
+  const {
+    isLoggedIn,
+    location: { pathname }
+  } = props;
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Redirect to="/" />
+        <Route exact path={`${pathname}/`} component={Home} />
+        <Redirect to={`${pathname}/`} />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <Redirect to="/" />
+      <Route exact path={`${pathname}/`} component={LandingPage} />
+      <Redirect to={`${pathname}/`} />
     </Switch>
   );
 };
