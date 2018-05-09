@@ -38,6 +38,7 @@ in local development
 ```
 yarn start
 ```
+visit `localhost:1234`
 
 
 ## 6. Deploy
