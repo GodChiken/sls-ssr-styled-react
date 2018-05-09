@@ -58,7 +58,7 @@ in production
 
 * You need S3 bucket name & bucket URL (AWS)
 * Insert `[YOUR_S3_BUCEKT_NAME]` => `package.json:10`
-* Insert `[YOUR_BUCKET_URL]` => `webpack.config.js:12`
+* Insert `[YOUR_BUCKET_URL]` => `webpack.config.js:13`
 
 ```
 yarn deploy
