@@ -29,9 +29,9 @@ yarn start
 5.  deploy
 
 * in production
-- You need S3 bucket name & bucket URL
-- S3 bucket name => `package.json:10`
-- S3 bucket URL => `webpack.config.js:12`
+** You need S3 bucket name & bucket URL
+** S3 bucket name => `package.json:10`
+**S3 bucket URL => `webpack.config.js:12`
 
 ```
 yarn deploy
