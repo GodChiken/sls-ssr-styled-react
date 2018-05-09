@@ -1,6 +1,6 @@
 # Serverless Server-Side-Rendering with React and Styled-Components (feat. Webpack and Redux)
 
-0. You need to install serverless and aws
+## 0. You need to install serverless and aws
 ```
 npm install -g serverless aws
 ```
