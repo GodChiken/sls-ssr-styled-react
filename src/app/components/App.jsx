@@ -10,16 +10,16 @@ const App = ({ isLoggedIn, match }) => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Redirect to="/" />
+        <Route exact path={`${__dirname}/`} component={Home} />
+        <Redirect to={`${__dirname}/`} />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <Redirect to="/" />
+      <Route exact path={`${__dirname}/`} component={LandingPage} />
+      <Redirect to={`${__dirname}/`} />
     </Switch>
   );
 };
