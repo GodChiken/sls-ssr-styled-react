@@ -5,6 +5,8 @@ import Home from "./Home";
 import LandingPage from "./LandingPage";
 import { connect } from "react-redux";
 
+const SUB_ROOT = process.env.NODE_ENV === "development" ? "" : "/dev";
+
 const App = props => {
   const {
     isLoggedIn,
@@ -13,16 +15,16 @@ const App = props => {
   if (isLoggedIn) {
     return (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Redirect to="/" />
+        <Route exact path={`${SUB_ROOT}/`} component={Home} />
+        <Redirect to={`${SUB_ROOT}/`} />
       </Switch>
     );
   }
 
   return (
     <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <Redirect to="/" />
+      <Route exact path={`${SUB_ROOT}/`} component={LandingPage} />
+      <Redirect to={`${SUB_ROOT}/`} />
     </Switch>
   );
 };
