@@ -6,7 +6,7 @@ npm install -g serverless aws
 ```
 
 ## 1. AWS Configuration
-* You should had IAM Role in AWS. (AdministratorAccess Permission)
+* You should have IAM Role in AWS. (AdministratorAccess Permission)
 * Then You get `AWS Access Key ID` and `AWS Secret Access Key`.
 * In the terminal,
 ```
@@ -45,6 +45,7 @@ in production
 * You need S3 bucket name & bucket URL
 * S3 bucket name => `package.json:10`
 * S3 bucket URL => `webpack.config.js:12`
+* When you deploy to lambda, it gives you endpoint URL. But It has sub path (/[stage_name]) not root path(/). Therefore you have to change paths in React-Router-DOM.
 ```
 yarn deploy
 ```
